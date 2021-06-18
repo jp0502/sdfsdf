@@ -1,0 +1,21 @@
+function C = blackscholes(K,r,S,sigma,t)
+t = (t/365);
+temp = (log(S/K) + (r + (1/2)*(sigma^2)*t));
+d1 = temp/(sqrt((sigma^2)* t));
+d2 = d1 - sqrt((sigma^2) * t);
+C = S*(normcdf(d1)) - (K*(exp((-r)*t)*normcdf(d2)));
+C1 = S*normcdf(d1) - (K/((1+r)^t))*(normcdf(d2))
+putPremium = C-S+(K/((1+r)^t))*(normcdf(d2))
+
+d1
+d2
+t
+normcdf(d1)
+normcdf(d2)
+C1
+putPremium 
+
+disp('Call price is:') 
+disp(C)
+
+end
